@@ -28,9 +28,8 @@ export class LoginComponent implements OnInit {
       .login(email, password)
       .pipe(first())
       .subscribe({
-        next: (el) => {
-          console.log(el);
-          this.router.navigate(['/hey']);
+        next: () => {
+          this.router.navigate(['/dashboard/home']);
         },
         error: (error) => {
           console.log(error);

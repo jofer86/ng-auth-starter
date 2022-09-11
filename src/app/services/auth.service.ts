@@ -22,7 +22,7 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    return this.http.post<User>(`${environment.apiUrl}login`, { email, password }).pipe(
+    return this.http.post<User>(`${environment.apiUrl}api/v1/auth/login`, { email, password }).pipe(
       map(({ email, token }) => {
         let user: User = { email, token };
         localStorage.setItem('currentUser', JSON.stringify(user));
