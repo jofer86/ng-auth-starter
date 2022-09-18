@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { faChartLine, faHome, faUser, faCog } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -10,10 +9,6 @@ import { faChartLine, faHome, faUser, faCog } from '@fortawesome/free-solid-svg-
 export class DashboardComponent implements OnInit {
 
   constructor() { }
-  faHome = faHome;
-  faUser = faUser;
-  faChartLine = faChartLine;
-  faCog = faCog;
 
   ngOnInit(): void {
   }

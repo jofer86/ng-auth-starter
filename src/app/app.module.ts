@@ -8,8 +8,8 @@ import { LoginComponent } from './route/login/login.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor.service';
-import { DashboardComponent } from './route/dashboard/dashboard.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -19,7 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BrowserAnimationsModule,
     AngularMaterialModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    ReactiveFormsModule
   ],
   providers: [
     {

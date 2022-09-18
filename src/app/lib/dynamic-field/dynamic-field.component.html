@@ -1,0 +1,92 @@
+<ng-container *ngIf="field.visible !== false" [ngSwitch]="field.type">
+  <!-- CHECKBOX -->
+  <div *ngSwitchCase="FieldType.CHECKBOX" class="checkbox-view">
+    <mat-checkbox [formControl]="control" color="primary">
+      {{ field.name }}
+    </mat-checkbox>
+  </div>
+
+  <!-- DATEPICKER -->
+  <mat-list-item *ngSwitchCase="FieldType.DATEPICKER">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" [placeholder]="field.name" [formControl]="control" />
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </mat-list-item>
+
+  <!-- SINGLE RADIO -->
+  <mat-radio-group *ngSwitchCase="FieldType.RADIO" [formControl]="control">
+    <mat-radio-button *ngFor="let option of field.options" [value]="option" color="primary">
+      {{ option }}
+    </mat-radio-button>
+  </mat-radio-group>
+
+  <!-- SELECT DROPDOWN -->
+  <label *ngSwitchCase="FieldType.SELECTDROPDOWN">
+    {{ field.label }}
+    <mat-form-field>
+      <mat-select [placeholder]="field.placeholder" [formControl]="control">
+        <mat-option *ngFor="let option of field.options" [value]="option">{{ option }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </label>
+
+  <!-- SELECT LIST -->
+  <mat-selection-list *ngSwitchCase="FieldType.SELECTLIST" [formControl]="control" color="primary">
+    <mat-list-option
+      mySelectionList
+      *ngFor="let option of field.options"
+      [value]="option"
+      color="primary"
+      checkboxPosition="before"
+    >
+      {{ option }}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <!-- SLIDE TOGGLE -->
+  <ng-container *ngSwitchCase="FieldType.SLIDETOGGLE">
+    <!-- <mat-list-item > -->
+    <mat-slide-toggle matLine [formControl]="control" color="primary" class="checkbox-view">
+      {{ field.label }}
+    </mat-slide-toggle>
+    <!-- </mat-list-item> -->
+
+    <div matLine *ngIf="field.children" style="padding-top: 7px">
+      <ng-container *ngFor="let child of field.children">
+        <app-dynamic-field [field]="child" class="toggleChild"></app-dynamic-field>
+      </ng-container>
+    </div>
+  </ng-container>
+
+  <!-- TEXTAREA -->
+  <mat-list-item *ngSwitchCase="FieldType.TEXTAREA">
+    <mat-form-field>
+      <textarea matInput type="text" [formControl]="control" [placeholder]="field.placeholder"></textarea>
+    </mat-form-field>
+  </mat-list-item>
+
+  <!-- TEXTFIELD -->
+
+  <mat-list-item *ngSwitchCase="FieldType.TEXTFIELD">
+    <label>
+      {{ field.label }}
+      <mat-form-field>
+        <input matInput type="text" [formControl]="control" [placeholder]="field.placeholder" />
+      </mat-form-field>
+    </label>
+  </mat-list-item>
+
+  <!-- SUBHEADER -->
+  <div *ngSwitchCase="FieldType.SUBHEADER" class="subheader">
+    <h2>{{ field.name }}</h2>
+  </div>
+
+  <!-- DIVIDER -->
+  <ng-container *ngSwitchCase="FieldType.DIVIDER">
+    <hr />
+  </ng-container>
+
+  <mat-list-item *ngSwitchDefault>no field found</mat-list-item>
+</ng-container>
