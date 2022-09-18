@@ -1,3 +1,10 @@
+
+<app-dynamic-form
+  (emitFormValues)="onSubmit($event)"
+  [fieldset]="loginForm"
+></app-dynamic-form>
+
+
 <form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
   <div class="form-field">
       <input mat-input formControlName="email" placeholder="Email" />

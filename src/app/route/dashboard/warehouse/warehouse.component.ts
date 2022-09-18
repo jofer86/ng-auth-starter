@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { Field, FieldType } from 'src/app/lib/dynamic-form.model';
 import { WarehouseRepository } from 'src/app/state/warehouse/warehouse.repository';
 import { WarehouseService } from 'src/app/state/warehouse/warehouse.service';
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-warehouse',
   templateUrl: './warehouse.component.html',
   styleUrls: ['./warehouse.component.scss']

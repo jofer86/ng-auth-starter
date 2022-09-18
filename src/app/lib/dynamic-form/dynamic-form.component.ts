@@ -1,9 +1,10 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Field, KeyValuePair } from '../dynamic-form.model';
 
 
 @Component({
+  encapsulation: ViewEncapsulation.None,
   selector: 'app-dynamic-form',
   styleUrls: ['./dynamic-form.component.scss'],
   templateUrl: './dynamic-form.component.html'

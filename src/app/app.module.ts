@@ -10,6 +10,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpInterceptorService } from './services/http-interceptor.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DynamicFieldComponent } from './lib/dynamic-field/dynamic-field.component';
+import { DynamicFormComponent } from './lib/dynamic-form/dynamic-form.component';
+import { DynamicFormModule } from './lib/dymanic-form.module';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -20,7 +23,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularMaterialModule,
     HttpClientModule,
     FontAwesomeModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DynamicFormModule
   ],
   providers: [
     {
