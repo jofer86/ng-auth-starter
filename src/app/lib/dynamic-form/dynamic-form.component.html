@@ -1,8 +1,9 @@
+<div class="form-title">{{formTitle}}</div>
 <ng-container *ngIf="formReady">
   <form [formGroup]="form">
     <ng-container *ngFor="let field of fieldset">
       <app-dynamic-field [field]="field"></app-dynamic-field>
     </ng-container>
-    <button type="submit" [disabled]="!form.valid" (click)="onSubmit(form)">Submit</button>
+    <button mat-raised-button color="primary" class="submit-button" type="submit" [disabled]="!form.valid" (click)="onSubmit(form)">Submit</button>
   </form>
 </ng-container>

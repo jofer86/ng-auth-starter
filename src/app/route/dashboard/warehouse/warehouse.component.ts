@@ -14,67 +14,111 @@ export class WarehouseComponent implements OnInit {
   warehouses$ = this.warehouseStore.warehouses$;
   displayedColumns: string[] = ['id', 'name', 'address', 'city', 'state', 'zip_code', 'phone_number', 'email', 'website'];
 
+
   leftForm: Field[] = [
     {
-      name: 'firstName',
-      placeholder: 'First Name',
-      type: FieldType.TEXTFIELD,
-      validation: [Validators.required, Validators.maxLength(25)]
-    },
-    {
-      label: 'Last Name',
-      name: 'lastName',
+      name: 'name',
+      placeholder: 'Name',
       type: FieldType.TEXTFIELD
     },
     {
-      name: 'divider',
-      type: FieldType.DIVIDER
-    },
-    {
-      name: 'Favorites',
-      type: FieldType.SUBHEADER
-    },
-    {
-      name: 'notes',
-      placeholder: 'Notes',
+      name: 'address',
+      placeholder: 'Address',
       type: FieldType.TEXTAREA
     },
     {
-      children: [
-        {
-          name: 'hiddenName',
-          placeholder: 'First Name',
-          type: FieldType.TEXTFIELD,
-          validation: [Validators.required, Validators.maxLength(25)]
-        },
-        {
-          label: 'Last Name',
-          name: 'HiddenLast',
-          type: FieldType.TEXTFIELD
-        }
-      ],
-      label: 'Slide',
-      name: 'slideToggle',
-      type: FieldType.SLIDETOGGLE
+      name: 'city',
+      placeholder: 'City',
+      type: FieldType.TEXTFIELD
     },
     {
-      name: 'radio',
-      options: ['opt1', 'opt2', 'opt3'],
-      type: FieldType.RADIO
+      name: 'state',
+      placeholder: 'State',
+      type: FieldType.TEXTFIELD
     },
     {
-      name: 'favoriteFood',
-      options: ['Ice Cream', 'Pizza', 'Tacos'],
-      placeholder: 'Favorite Food',
-      type: FieldType.SELECTDROPDOWN
+      name: 'zip_code',
+      placeholder: 'Zip Code',
+      type: FieldType.TEXTFIELD
     },
     {
-      label: 'Favorite Color',
-      name: 'favoriteColor',
-      options: ['Red', 'Blue', 'Yellow'],
-      type: FieldType.SELECTDROPDOWN
+      name: 'country',
+      placeholder: 'Country',
+      type: FieldType.TEXTFIELD
+    },
+    {
+      name: 'phone_number',
+      placeholder: 'Phone Number',
+      type: FieldType.TEXTFIELD
+    },
+    {
+      name: 'email',
+      placeholder: 'Email',
+      type: FieldType.TEXTFIELD
     }
-  ];
+  ]
+
+  // leftForm: Field[] = [
+  //   {
+  //     name: 'firstName',
+  //     placeholder: 'First Name',
+  //     type: FieldType.TEXTFIELD,
+  //     validation: [Validators.required, Validators.maxLength(25)]
+  //   },
+  //   {
+  //     label: 'Last Name',
+  //     name: 'lastName',
+  //     type: FieldType.TEXTFIELD
+  //   },
+  //   {
+  //     name: 'divider',
+  //     type: FieldType.DIVIDER
+  //   },
+  //   {
+  //     name: 'Favorites',
+  //     type: FieldType.SUBHEADER
+  //   },
+  //   {
+  //     name: 'notes',
+  //     placeholder: 'Notes',
+  //     type: FieldType.TEXTAREA
+  //   },
+  //   {
+  //     children: [
+  //       {
+  //         name: 'hiddenName',
+  //         placeholder: 'First Name',
+  //         type: FieldType.TEXTFIELD,
+  //         validation: [Validators.required, Validators.maxLength(25)]
+  //       },
+  //       {
+  //         label: 'Last Name',
+  //         name: 'HiddenLast',
+  //         type: FieldType.TEXTFIELD
+  //       }
+  //     ],
+  //     label: 'Slide',
+  //     name: 'slideToggle',
+  //     type: FieldType.SLIDETOGGLE
+  //   },
+  //   {
+  //     name: 'radio',
+  //     options: ['opt1', 'opt2', 'opt3'],
+  //     type: FieldType.RADIO
+  //   },
+  //   {
+  //     name: 'favoriteFood',
+  //     options: ['Ice Cream', 'Pizza', 'Tacos'],
+  //     placeholder: 'Favorite Food',
+  //     type: FieldType.SELECTDROPDOWN
+  //   },
+  //   {
+  //     label: 'Favorite Color',
+  //     name: 'favoriteColor',
+  //     options: ['Red', 'Blue', 'Yellow'],
+  //     type: FieldType.SELECTDROPDOWN
+  //   }
+  // ];
 
   prefillData = [
     {

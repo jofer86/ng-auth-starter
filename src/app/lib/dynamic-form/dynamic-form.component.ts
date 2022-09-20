@@ -10,13 +10,11 @@ import { Field, KeyValuePair } from '../dynamic-form.model';
   templateUrl: './dynamic-form.component.html'
 })
 export class DynamicFormComponent implements OnInit {
-  @Input()
-  fieldset: Field[]; // Required
-  @Input()
-  errors: Error[]; // Optional
-  @Input()
-  prefillData: KeyValuePair[]; // Optional (default values)
+  @Input() fieldset: Field[]; // Required
+  @Input() errors: Error[]; // Optional
+  @Input() prefillData: KeyValuePair[]; // Optional (default values)
   @Input() readOnly = false; // Optional
+  @Input() formTitle: string; // Required
 
   @Output() emitFormValues = new EventEmitter();
 

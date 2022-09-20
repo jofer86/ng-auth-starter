@@ -10,7 +10,8 @@ export enum FieldType {
   TEXTAREA,
   TEXTFIELD,
   SUBHEADER,
-  DIVIDER
+  DIVIDER,
+  PASSWORD
 }
 
 export interface Field {

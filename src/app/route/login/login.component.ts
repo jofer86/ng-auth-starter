@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
     {
       placeholder: 'Password',
       name: 'password',
-      type: FieldType.TEXTFIELD
+      type: FieldType.PASSWORD
     }
   ]
 

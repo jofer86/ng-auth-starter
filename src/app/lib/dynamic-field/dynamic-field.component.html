@@ -69,7 +69,7 @@
 
   <!-- TEXTFIELD -->
 
-  <mat-list-item *ngSwitchCase="FieldType.TEXTFIELD">
+  <mat-list-item class="text-field" *ngSwitchCase="FieldType.TEXTFIELD">
     <label>
       {{ field.label }}
       <mat-form-field>
@@ -77,6 +77,8 @@
       </mat-form-field>
     </label>
   </mat-list-item>
+
+
 
   <!-- SUBHEADER -->
   <div *ngSwitchCase="FieldType.SUBHEADER" class="subheader">
@@ -87,6 +89,15 @@
   <ng-container *ngSwitchCase="FieldType.DIVIDER">
     <hr />
   </ng-container>
+
+  <mat-list-item *ngSwitchCase="FieldType.PASSWORD">
+    <label>
+      {{ field.label }}
+      <mat-form-field>
+        <input matInput type="password" [formControl]="control" [placeholder]="field.placeholder" />
+      </mat-form-field>
+    </label>
+  </mat-list-item>
 
   <mat-list-item *ngSwitchDefault>no field found</mat-list-item>
 </ng-container>

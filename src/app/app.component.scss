@@ -1,0 +1,18 @@
+@import '../styles/app-colors';
+app {
+   * {
+    color: black;
+   }
+}
+
+.mat-select-panel {
+  background: $white-seven-five;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+  span {
+    color: $blue-seven-five;
+  }
+}
