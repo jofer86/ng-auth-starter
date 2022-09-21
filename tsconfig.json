@@ -21,6 +21,18 @@
     "skipLibCheck": true,
     "target": "es2015",
     "typeRoots": ["node_modules/@types"],
-    "lib": ["es2018", "es2015", "es2016", "dom", "es5", "es6"]
+    "lib": ["es2018", "es2015", "es2016", "dom", "es5", "es6"],
+    "paths": {
+      "@component/*": ["src/app/component/*"],
+      "@route/*": ["src/app/route/*"],
+      "@lib/*": ["src/app/lib/*"],
+      "@env/*": ["src/environments/*"],
+      "@helpers/*": ["src/app/helpers/*"],
+      "@pipe/*": ["src/app/pipe/*"],
+      "@resolver/*": ["src/app/resolvers/*"],
+      "@state/*": ["src/app/state/*"],
+      "@styles/*": ["src/styles/*"],
+      "@app/*": ["src/app/*"]
+    }
   }
 }

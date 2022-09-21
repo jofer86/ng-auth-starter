@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '@app/services/auth.service';
+import { FieldType } from '@lib/dynamic-form.model';
 import { first } from 'rxjs/operators';
-import { FieldType } from '../../lib/dynamic-form.model';
-import { AuthService } from '../../services/auth.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       name: 'password',
       type: FieldType.PASSWORD
     }
-  ]
+  ];
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
 
@@ -36,9 +36,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit(obj: any) {
-    let formObject = {email: '', password: ''};
+    let formObject = { email: '', password: '' };
 
-    for (let {key, value } of obj) {
+    for (let { key, value } of obj) {
       formObject[key] = value;
     }
 

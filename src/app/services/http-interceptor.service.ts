@@ -1,5 +1,6 @@
 import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
 
@@ -8,13 +9,13 @@ import { AuthService } from './auth.service';
 })
 export class HttpInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      let user = this.authService.userValue();
-      if (user && user.token) {
-        req = req.clone({ headers: req.headers.set('Authorization', `Bearer ${user.token.token}`) });
-        console.log({req})
-      }
+    let user = this.authService.userValue();
+    console.log(user);
+    if (user && user.token) {
+      req = req.clone({ headers: req.headers.set('Authorization', `Bearer ${user.token.token}`) });
+    }
 
-      return next.handle(req);
+    return next.handle(req);
   }
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) {}
 }

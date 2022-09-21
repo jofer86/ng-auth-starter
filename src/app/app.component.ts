@@ -13,12 +13,11 @@ export class AppComponent implements OnInit {
   title = 'client';
   constructor(private authService: AuthService) {}
 
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
   checkMe(): void {
-    this.authService.getMe()
+    this.authService
+      .getMe()
       .pipe(first())
       .subscribe((user) => {
         console.log(user);
@@ -28,5 +27,4 @@ export class AppComponent implements OnInit {
   logout(): void {
     this.authService.logout();
   }
-
 }
