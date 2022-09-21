@@ -1,23 +1,23 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormBuilder } from '@angular/forms';
+import { Spectator, createComponentFactory } from '@ngneat/spectator/jest';
+import { AuthService } from 'src/app/services/auth.service';
+import { DynamicFormModule } from '../../lib/dymanic-form.module'
 
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {
-  let component: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
-
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
-    })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(LoginComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  let spectator: Spectator<LoginComponent>;
+  const createComponent = createComponentFactory({
+    component: LoginComponent,
+    imports: [DynamicFormModule, HttpClientTestingModule],
+    providers: [FormBuilder]
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  beforeEach(() => spectator = createComponent());
+
+  it('should have a success class by default', () => {
+    
   });
 });

@@ -2,8 +2,8 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { first } from 'rxjs/operators';
-import { FieldType } from 'src/app/lib/dynamic-form.model';
-import { AuthService } from 'src/app/services/auth.service';
+import { FieldType } from '../../lib/dynamic-form.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
