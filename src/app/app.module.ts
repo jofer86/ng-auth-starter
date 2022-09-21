@@ -11,6 +11,7 @@ import { HttpInterceptorService } from './services/http-interceptor.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormModule } from './lib/dymanic-form.module';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -29,7 +30,8 @@ import { DynamicFormModule } from './lib/dymanic-form.module';
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
-    }
+    },
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })
