@@ -7,11 +7,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './route/login/login.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpInterceptorService } from './services/http-interceptor.service';
+// import { HttpInterceptorService } from './services/http-interceptor.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DynamicFormModule } from './lib/dymanic-form.module';
-import { AuthGuardService } from './services/auth-guard.service';
+// import { AuthGuardService } from './services/auth-guard.service';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [AppComponent, LoginComponent],
@@ -23,16 +27,19 @@ import { AuthGuardService } from './services/auth-guard.service';
     HttpClientModule,
     FontAwesomeModule,
     ReactiveFormsModule,
-    DynamicFormModule
+    DynamicFormModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    provideFirestore(() => getFirestore())
   ],
-  providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: HttpInterceptorService,
-      multi: true
-    },
-    AuthGuardService
-  ],
+  // providers: [
+  //   {
+  //     provide: HTTP_INTERCEPTORS,
+  //     useClass: HttpInterceptorService,
+  //     multi: true
+  //   },
+  //   AuthGuardService
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

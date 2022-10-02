@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '@app/services/auth.service';
+// import { AuthService } from '@app/services/auth.service';
 import { FieldType } from '@lib/dynamic-form.model';
 import { first } from 'rxjs/operators';
 
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     }
   ];
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router) {}
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -43,16 +43,16 @@ export class LoginComponent implements OnInit {
     }
 
     let { email, password } = formObject;
-    this.authService
-      .login(email, password)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.router.navigate(['dashboard']);
-        },
-        error: (error) => {
-          console.log(error);
-        }
-      });
+    // this.authService
+    //   .login(email, password)
+    //   .pipe(first())
+    //   .subscribe({
+    //     next: () => {
+    //       this.router.navigate(['dashboard']);
+    //     },
+    //     error: (error) => {
+    //       console.log(error);
+    //     }
+    //   });
   }
 }

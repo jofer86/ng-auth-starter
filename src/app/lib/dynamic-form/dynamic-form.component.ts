@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } fro
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Field, KeyValuePair } from '../dynamic-form.model';
 
-
 @Component({
   encapsulation: ViewEncapsulation.None,
   selector: 'app-dynamic-form',
@@ -123,7 +122,7 @@ export class DynamicFormComponent implements OnInit {
     this.emitFormValues.emit(this.extractFormValues(form));
   }
 
-  extractFormValues(form: any): KeyValuePair[] {
+  extractFormValues(form: any): any {
     const formValues: KeyValuePair[] = [];
     if (form.controls) {
       for (let key of Object.keys(form.controls)) {
@@ -135,6 +134,13 @@ export class DynamicFormComponent implements OnInit {
       }
     }
 
-    return formValues;
+    let formObject = {};
+    for (let { key, value } of formValues) {
+      formObject[key] = value;
+    }
+
+    // Keeping both versions of the response in case we need either use case.
+
+    return { formObject, formValues };
   }
 }

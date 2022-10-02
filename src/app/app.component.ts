@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { pipe } from 'rxjs';
 import { first } from 'rxjs/operators';
-import { AuthService } from './services/auth.service';
+// import { AuthService } from './services/auth.service';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -11,20 +11,20 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent implements OnInit {
   title = 'client';
-  constructor(private authService: AuthService) {}
+  constructor() {}
 
   ngOnInit() {}
 
-  checkMe(): void {
-    this.authService
-      .getMe()
-      .pipe(first())
-      .subscribe((user) => {
-        console.log(user);
-      });
-  }
+  // checkMe(): void {
+  //   this.authService
+  //     .getMe()
+  //     .pipe(first())
+  //     .subscribe((user) => {
+  //       console.log(user);
+  //     });
+  // }
 
-  logout(): void {
-    this.authService.logout();
-  }
+  // logout(): void {
+  //   this.authService.logout();
+  // }
 }
