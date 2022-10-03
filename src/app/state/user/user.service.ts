@@ -37,7 +37,7 @@ export class UserService {
   }
 
   GetAndStoreUser$(id: string) {
-    return docData(doc(this.firestore, `books/${id}`)).pipe(
+    return docData(doc(this.firestore, `user/${id}`)).pipe(
       tap((user: User) => {
         this.userRepository.updateUser(user);
       })

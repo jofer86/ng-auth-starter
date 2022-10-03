@@ -16,6 +16,7 @@ import {
 import { FieldType } from '@lib/dynamic-form.model';
 import { UserService } from '@state/user/user.service';
 import { Router } from '@angular/router';
+import { UserRepository } from '@state/user/user.repository';
 
 @Component({
   encapsulation: ViewEncapsulation.None,
@@ -27,7 +28,12 @@ export class HomeComponent implements OnInit {
   itemsRef: CollectionReference<any>;
   itemRef: DocumentReference<any>;
 
-  constructor(firestore: Firestore, private userService: UserService, private router: Router) {
+  constructor(
+    firestore: Firestore,
+    private userService: UserService,
+    private router: Router,
+    private userRepository: UserRepository
+  ) {
     this.itemsRef = collection(firestore, 'items');
     collectionData(this.itemsRef).subscribe(console.log);
 
@@ -38,10 +44,7 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {}
 
   onSubmit(event: any) {
-    let formObject = { email: '', name: '' };
-    for (let { key, value } of event) {
-      formObject[key] = value;
-    }
+    let { formObject } = event;
 
     this.userService.AddUser$(formObject).then(() => this.router.navigate(['/']));
   }
